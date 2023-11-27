@@ -57,6 +57,7 @@
             this.shapesFileToolStripMenuItem.Name = "shapesFileToolStripMenuItem";
             this.shapesFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.shapesFileToolStripMenuItem.Text = "Shapes file";
+            this.shapesFileToolStripMenuItem.Click += new System.EventHandler(this.shapesFileToolStripMenuItem_Click);
             // 
             // Form1
             // 
