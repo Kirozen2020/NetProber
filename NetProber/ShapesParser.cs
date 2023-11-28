@@ -1,13 +1,12 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 namespace NetProber
 {
     internal class ShapesParser
     {
-        public string filePath;
-        public List<string> lines = new List<string>();
+        private string filePath;
+        private List<string> lines = new List<string>();
         public Dictionary<string, Dictionary<string, List<VertexClass>>> shapes;//info - Dictionary<Subclass name, Dictionary<Refdes name, List<VertexClass>>>
 
         public ShapesParser(string filePath)
@@ -16,9 +15,11 @@ namespace NetProber
 
             FileReader fileReader = new FileReader(filePath);
             this.lines = fileReader.TextReader();
+
+            FillShapesList();
         }
 
-        public void FillShapesList()
+        private void FillShapesList()
         {
             this.shapes = new Dictionary<string, Dictionary<string, List<VertexClass>>>();
             foreach (var line in this.lines)
@@ -46,7 +47,7 @@ namespace NetProber
             }
         }
 
-        public VertexClass CreateObj(string[] element)
+        private VertexClass CreateObj(string[] element)
         {
             PointF 
                 start = new PointF(float.Parse(element[3]), float.Parse(element[4])),
