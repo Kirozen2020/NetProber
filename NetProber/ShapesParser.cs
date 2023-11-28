@@ -5,20 +5,28 @@ namespace NetProber
 {
     internal class ShapesParser
     {
-        private string filePath;
+        /// <summary>
+        /// The lines
+        /// </summary>
         private List<string> lines = new List<string>();
-        public Dictionary<string, Dictionary<string, List<VertexClass>>> shapes;//info - Dictionary<Subclass name, Dictionary<Refdes name, List<VertexClass>>>
-
+        /// <summary>
+        /// The shapes
+        /// </summary>
+        public Dictionary<string, Dictionary<string, List<VertexClass>>> shapes;//info - Dictionary<Subclass name, Dictionary<Refdes name, List<VertexClass>>>        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ShapesParser"/> class.
+        /// </summary>
+        /// <param name="filePath">The file path.</param>
         public ShapesParser(string filePath)
         {
-            this.filePath = filePath;
-
             FileReader fileReader = new FileReader(filePath);
             this.lines = fileReader.TextReader();
 
             FillShapesList();
         }
-
+        /// <summary>
+        /// Fills the shapes list.
+        /// </summary>
         private void FillShapesList()
         {
             this.shapes = new Dictionary<string, Dictionary<string, List<VertexClass>>>();
@@ -46,7 +54,11 @@ namespace NetProber
                 }
             }
         }
-
+        /// <summary>
+        /// Creates the object.
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <returns></returns>
         private VertexClass CreateObj(string[] element)
         {
             PointF 

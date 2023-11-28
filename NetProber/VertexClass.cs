@@ -2,7 +2,10 @@
 
 namespace NetProber
 {
-    internal class VertexClass
+    /// <summary>
+    /// Represents a vertex of a line or an arc in a graphical context.
+    /// </summary>
+    public class VertexClass
     {
         public enum Type
         {
@@ -17,6 +20,9 @@ namespace NetProber
         public double raduis {  get; set; }
         public int width { get; set; }
 
+        /// <summary>
+        /// Constructor for a line vertex.
+        /// </summary>
         public VertexClass(Type shapeType, PointF start, PointF end, int width)
         {
             this.shapeType = shapeType;
@@ -25,6 +31,9 @@ namespace NetProber
             this.width = width;
         }
 
+        /// <summary>
+        /// Constructor for an arc vertex.
+        /// </summary>
         public VertexClass(Type shapeType, PointF start, PointF end, PointF center, double raduis, int width)
         {
             this.shapeType = shapeType;
